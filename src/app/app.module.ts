@@ -5,22 +5,22 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule }     from './app-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { OrdersComponent } from './orders/orders.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
+import { OrdersModule } from './orders/orders.module';
+import { PortfolioModule } from './portfolio/portfolio.module';
+import { MenubarModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DashboardComponent,
-    OrdersComponent,
-    PortfolioComponent  
+    AppComponent 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    OrdersModule,
+    PortfolioModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

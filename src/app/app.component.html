@@ -1,9 +1,12 @@
 
 <h1>{{title}}</h1>
-    <nav>
-       <!--<a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>-->
+   <!-- <nav>
+       <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
        <a routerLink="/orders" routerLinkActive="active">Ordenes</a> 
        <a routerLink="/portfolio" routerLinkActive="active">Cartera</a> 
-    </nav>
+    </nav>-->
+
+ <p-menubar [model]="items"></p-menubar>
+
 <router-outlet></router-outlet>
 
