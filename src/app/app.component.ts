@@ -16,16 +16,22 @@ export class AppComponent {
             {
                 label: 'Ordenes',
                 items: [{
-                        label: 'New', 
+                        label: 'Compra', 
                         icon: 'fa-plus',
                         items: [
-                            {label: 'Compra'},
-                            {label: 'Venta'},
-                        ]
-                    },
-                    {label: 'Compra', routerLink: ['/orders']},
-                    {label: 'Venta', routerLink: ['/orders']}
-                ]
+                                {label: 'Acciones', routerLink: ['/orders']},
+                                {label: 'Bonos', routerLink: ['/orders']},
+                               ]
+                        },
+                        {
+                        label: 'Venta', 
+                        icon: 'fa-plus',
+                        items: [
+                                {label: 'Fondos', routerLink: ['/orders']},
+                                {label: 'dolar', routerLink: ['/orders']},
+                               ]
+                        },
+                    ]
             },
             {
                 label: 'Cartera',
