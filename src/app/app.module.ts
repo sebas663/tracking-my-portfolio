@@ -5,21 +5,25 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule }     from './app-routing.module';
-import { OrdersModule } from './orders/orders.module';
-import { PortfolioModule } from './portfolio/portfolio.module';
 import { MenubarModule } from 'primeng/primeng';
+import { BuyStockModule } from './buy-stock/buy-stock.module';
+import { SellStockModule } from './sell-stock/sell-stock.module';
+import { PortfolioOpenModule } from './portfolio-open/portfolio-open.module';
+import { PortfolioCloseModule } from './portfolio-close/portfolio-close.module';
 
 @NgModule({
   declarations: [
-    AppComponent 
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    OrdersModule,
-    PortfolioModule,
+    BuyStockModule,
+    SellStockModule,
+    PortfolioOpenModule,
+    PortfolioCloseModule,
     MenubarModule
   ],
   providers: [],

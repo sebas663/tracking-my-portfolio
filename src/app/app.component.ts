@@ -19,16 +19,14 @@ export class AppComponent {
                         label: 'Compra', 
                         icon: 'fa-plus',
                         items: [
-                                {label: 'Acciones', routerLink: ['/orders']},
-                                {label: 'Bonos', routerLink: ['/orders']},
+                                {label: 'Acciones', routerLink: ['/buyStock']},
                                ]
                         },
                         {
                         label: 'Venta', 
                         icon: 'fa-plus',
                         items: [
-                                {label: 'Fondos', routerLink: ['/orders']},
-                                {label: 'dolar', routerLink: ['/orders']},
+                                {label: 'Acciones', routerLink: ['/sellStock']},
                                ]
                         },
                     ]
@@ -36,8 +34,8 @@ export class AppComponent {
             {
                 label: 'Cartera',
                 items: [
-                    {label: 'Abierta', icon: 'fa-mail-forward', routerLink: ['/portfolio']},
-                    {label: 'Cerrada', icon: 'fa-mail-reply', routerLink: ['/portfolio']}
+                    {label: 'Abierta', icon: 'fa-mail-forward', routerLink: ['/portfolio-open']},
+                    {label: 'Cerrada', icon: 'fa-mail-reply', routerLink: ['/portfolio-close']}
                 ]
             }
         ];

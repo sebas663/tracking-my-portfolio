@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { PortfolioComponent } from './portfolio.component';
+import { PortfolioCloseComponent } from './portfolio-close.component';
 
-describe('PortfolioComponent', () => {
-  let component: PortfolioComponent;
-  let fixture: ComponentFixture<PortfolioComponent>;
+describe('PortfolioCloseComponent', () => {
+  let component: PortfolioCloseComponent;
+  let fixture: ComponentFixture<PortfolioCloseComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PortfolioComponent ]
+      declarations: [ PortfolioCloseComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PortfolioComponent);
+    fixture = TestBed.createComponent(PortfolioCloseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
