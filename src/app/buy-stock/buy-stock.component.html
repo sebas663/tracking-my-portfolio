@@ -1,3 +1,91 @@
-<p>
-  buy-stock works!
-</p>
+<div class="container">
+  <div  [hidden]="submitted">
+    <h1>Compra de acciones</h1>
+    <form *ngIf="active" (ngSubmit)="onSubmit()" #buyStockForm="ngForm">
+
+      <!--<div class="form-group">
+        <label for="codeStock">Especie</label>
+        <select class="form-control" id="codeStock"
+                required
+                [(ngModel)]="model.codeStock" name="codeStock" 
+                #codeStock="ngModel" >
+          <option *ngFor="let p of stocks" [value]="p.code">{{p.description}}</option>
+        </select>
+        <div [hidden]="codeStock.valid || codeStock.pristine" class="alert alert-danger">
+          Es requerido seleccionar una especie.
+        </div>
+      </div>-->
+
+
+      <h3>Advanced</h3>
+      <p-autoComplete formControlName="codeStock" 
+                      [suggestions]="filteredStocks" 
+                      (completeMethod)="filterStocks($event)" 
+                      field="code"
+                      [size]="30"
+                      [minLength]="1"  [dropdown]="true" (onDropdownClick)="handleDropdownClick($event)">
+          <template let-stock>
+              <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
+                   <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{stock.description}}</div>
+              </div>
+          </template>
+      </p-autoComplete>
+      <span style="margin-left:50px">Especie: {{stock.description||'none'}}</span>
+      
+
+
+
+
+
+
+
+
+
+      <div class="form-group">
+        <label for="quantity">Cantidad</label>
+        <input type="number" class="form-control" id="quantity"
+               required
+               [(ngModel)]="model.quantity" name="quantity"
+               #quantity="ngModel" >
+        <div [hidden]="quantity.valid || quantity.pristine"  class="alert alert-danger">
+          La cantidad es requerida.
+        </div>
+      </div>
+
+       <div class="form-group">
+        <label for="price">Precio</label>
+        <input type="number" class="form-control" id="price"
+               required
+               [(ngModel)]="model.price" name="price"
+               #price="ngModel" >
+        <div [hidden]="price.valid || price.pristine"  class="alert alert-danger">
+          La cantidad es requerida.
+        </div>
+      </div>
+
+
+
+     
+      
+      <button type="submit" class="btn btn-default" [disabled]="!buyStockForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button>
+    </form>
+  </div>
+        <!--<div [hidden]="!submitted">
+          <h2>You submitted the following:</h2>
+          <div class="row">
+            <div class="col-xs-3">Name</div>
+            <div class="col-xs-9  pull-left">{{ model.name }}</div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3">Alter Ego</div>
+            <div class="col-xs-9 pull-left">{{ model.alterEgo }}</div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3">Power</div>
+            <div class="col-xs-9 pull-left">{{ model.power }}</div>
+          </div>
+          <br>
+          <button class="btn btn-default" (click)="submitted=false">Edit</button>
+        </div>-->
+</div>
