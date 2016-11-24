@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class OrderService {
 
-  private url = 'https://tracking-my-portfolio-8260e.firebaseio.com/data.json';
+  private url = 'https://tracking-my-portfolio-8260e.firebaseio.com/orders.json';
 
   constructor(private http: Http) { }
 
