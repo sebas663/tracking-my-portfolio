@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Stock }    from '../buy-stock/stock';
 import 'rxjs/add/operator/toPromise';
 
 
 @Injectable()
 export abstract class StockService {
 
-  abstract getStocks() : Promise<any>;
+  abstract getStocks() : Promise<Stock[]>;
   abstract create(name: any): Promise<any>
 
   handleError(error: any): Promise<any> {
@@ -25,7 +26,7 @@ export class StockServiceProduction extends StockService {
     console.log("StockServiceProduction instance");
    }
 
-  getStocks() : Promise<any>{
+  getStocks() : Promise<Stock[]>{
     //return this.http
 	 // .get(this.url)
      // .toPromise()
@@ -37,6 +38,7 @@ export class StockServiceProduction extends StockService {
               {code:"bma1",description:"Banco Manco1"},
               {code:"bma2",description:"Banco Manco2"},
             ];
+      console.log("stocks " + stocks);     
      return Promise.resolve(stocks);;
   }
 

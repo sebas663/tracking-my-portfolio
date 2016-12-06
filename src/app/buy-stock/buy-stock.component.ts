@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BuyStock }    from './buy-stock';
+import { Stock }    from './stock';
 import { orderServiceProvider } from '../services/order.service.provider';
 import { stockServiceProvider } from '../services/stock.service.provider';
 import { OrderService } from '../services/order.service';
