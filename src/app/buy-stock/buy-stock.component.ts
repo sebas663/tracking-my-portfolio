@@ -13,14 +13,10 @@ export class BuyStockComponent implements OnInit {
 
   es: any;
 
-  private orderService : OrderService;
-
-  constructor() { }
+  constructor(private orderService : OrderService) { }
 
   ngOnInit() {
 
-    this.orderService = orderServiceProvider.provide;
-    
     this.es = {
         	firstDayOfWeek: 1,
         	dayNames: [ "domingo","lunes","martes","miércoles","jueves","viernes","sábado" ],
@@ -54,12 +50,12 @@ export class BuyStockComponent implements OnInit {
     console.log(this.model.quantity);
     console.log(this.model.price);
     console.log(this.model.buyDate);
-
+    console.log(orderServiceProvider);
+    console.log(this.orderService);
+    
     //this.submitted = true;
     this.submitted = false;
     this.orderService.sendOrder(this.model)
-    orderServiceProvider
-  
  }
   // Reset the form with a new hero AND restore 'pristine' class state
   // by toggling 'active' flag which causes the form

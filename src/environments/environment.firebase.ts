@@ -5,6 +5,6 @@
 
 export const environment = {
   isProduction: false,
-  isDev: true,
-  isFirebase: false
+  isDev: false,
+  isFirebase: true
 };

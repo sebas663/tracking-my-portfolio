@@ -14,21 +14,47 @@ export abstract class OrderService {
 }
 
 @Injectable()
-export class OrderServiceServer extends OrderService {
+export class OrderServiceProdServer extends OrderService {
 
-  private url = 'https://tracking-my-portfolio-8260e.firebaseio.com/orders.json';
+  private url = 'https://tracking-my-portfolio-8260e.firebaseio.com/ordersProd.json';
 
   constructor(private http: Http) {
     super();
-    console.log("OrderServiceServer instance");
+    console.log("OrderServiceProdServer instance");
    }
 
   sendOrder(order: any): Promise<any> {
 	//console.log("name " + name);
 	//console.log("name string " + JSON.stringify({name: name}));
     const info = JSON.stringify(order)
-    console.log("OrderServiceServer");
-    console.log("http" + http);
+  //console.log("OrderServiceProdServer");
+  //console.log("http" + this.http);
+    return this.http
+      .post(this.url,info)
+      .toPromise()
+      .then(res => console.log(res.json()))
+      .catch(this.handleError);
+  }
+
+}
+
+
+@Injectable()
+export class OrderServiceDevServer extends OrderService {
+
+  private url = 'https://tracking-my-portfolio-8260e.firebaseio.com/ordersDev.json';
+
+  constructor(private http: Http) {
+    super();
+    console.log("OrderServiceDevServer instance");
+   }
+
+  sendOrder(order: any): Promise<any> {
+	//console.log("name " + name);
+	//console.log("name string " + JSON.stringify({name: name}));
+    const info = JSON.stringify(order)
+   // console.log("OrderServiceServer");
+    //console.log("http" + this.http);
     return this.http
       .post(this.url,info)
       .toPromise()
@@ -41,19 +67,19 @@ export class OrderServiceServer extends OrderService {
 @Injectable()
 export class OrderServiceFirebase extends OrderService {
 
-  private url = 'https://tracking-my-portfolio-8260e.firebaseio.com/orders.json';
+  private url = 'https://tracking-my-portfolio-8260e.firebaseio.com/ordersFire.json';
 
   constructor(private http: Http) {
     super();
-    console.log("OrderService instance");
+    console.log("OrderServiceFirebase instance");
    }
 
   sendOrder(order: any): Promise<any> {
 	//console.log("name " + name);
 	//console.log("name string " + JSON.stringify({name: name}));
     const info = JSON.stringify(order)
-    console.log("OrderServiceFirebase");
-    console.log("http" + http);
+    //console.log("OrderServiceFirebase");
+    //console.log("http" + this.http);
     return this.http
       .post(this.url,info)
       .toPromise()
