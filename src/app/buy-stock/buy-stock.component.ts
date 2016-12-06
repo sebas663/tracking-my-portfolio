@@ -1,19 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { BuyStock }    from './buy-stock';
-import { OrderService }    from '../services/order.service';
+import { orderServiceProvider } from '../services/order.service.provider';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-buy-stock',
   templateUrl: './buy-stock.component.html',
-  styleUrls: ['./buy-stock.component.css'],
-  providers: [OrderService]
+  styleUrls: [ './buy-stock.component.css' ],
+  providers: [ orderServiceProvider ]
 })
 export class BuyStockComponent implements OnInit {
+
   es: any;
 
-  constructor(private orderService : OrderService) { }
+  private orderService : OrderService;
+
+  constructor() { }
 
   ngOnInit() {
+
+    this.orderService = orderServiceProvider.provide;
+    
     this.es = {
         	firstDayOfWeek: 1,
         	dayNames: [ "domingo","lunes","martes","miércoles","jueves","viernes","sábado" ],
@@ -51,6 +58,7 @@ export class BuyStockComponent implements OnInit {
     //this.submitted = true;
     this.submitted = false;
     this.orderService.sendOrder(this.model)
+    orderServiceProvider
   
  }
   // Reset the form with a new hero AND restore 'pristine' class state
