@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { BuyStock }    from './buy-stock';
 import { orderServiceProvider } from '../services/order.service.provider';
+import { stockServiceProvider } from '../services/stock.service.provider';
 import { OrderService } from '../services/order.service';
+import { StockService } from '../services/stock.service';
 
 @Component({
   selector: 'app-buy-stock',
   templateUrl: './buy-stock.component.html',
   styleUrls: [ './buy-stock.component.css' ],
-  providers: [ orderServiceProvider ]
+  providers: [ orderServiceProvider,stockServiceProvider ]
 })
 export class BuyStockComponent implements OnInit {
 
   es: any;
-
-  constructor(private orderService : OrderService) { }
+  stocks: any;
+  constructor(private orderService : OrderService, private stockService : StockService) { }
 
   ngOnInit() {
 
@@ -30,13 +32,11 @@ export class BuyStockComponent implements OnInit {
         let month = today.getMonth();
         let prevMonth = (month === 0) ? 11 : month -1;
         let nextMonth = (month === 11) ? 0 : month + 1;
+        this.stocks = this.stockService.getStocks();
+        
   }
 
-  stocks = [
-              {code:"bma",description:"Banco Manco"},
-              {code:"bma1",description:"Banco Manco1"},
-              {code:"bma2",description:"Banco Manco2"},
-            ];
+ 
 
   filteredStocks: any[];
 
