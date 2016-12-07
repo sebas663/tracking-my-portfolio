@@ -14,13 +14,9 @@ export class FirebaseService extends OrderService {
    }
 
   sendOrder(order: any): Promise<any> {
-	//console.log("name " + name);
-	//console.log("name string " + JSON.stringify({name: name}));
-    const info = JSON.stringify(order)
-    //console.log("FirebaseService");
-    //console.log("http" + this.http);
+    const data = JSON.stringify(order)
     return this.http
-      .post(this.url,info)
+      .post(this.url,data)
       .toPromise()
       .then(res => console.log(res.json()))
       .catch(this.handleError);

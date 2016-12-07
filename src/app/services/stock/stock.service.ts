@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export abstract class StockService {
 
-  abstract getStocks() : Promise<Stock[]>;
+  abstract getStocks(market: any) : Promise<Stock[]>;
   
   abstract create(name: any): Promise<any>
 

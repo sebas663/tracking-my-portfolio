@@ -15,7 +15,7 @@ export class ProductionService extends StockService {
     console.log("ProductionService instance");
    }
 
-  getStocks() : Promise<Stock[]>{
+  getStocks(market: any) : Promise<Stock[]>{
     //return this.http
 	  // .get(this.url)
      // .toPromise()

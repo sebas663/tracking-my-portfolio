@@ -15,21 +15,28 @@ export class FirebaseService extends StockService {
     console.log("FirebaseService instance");
    }
 
-  getStocks() : Promise<Stock[]>{
-    //return this.http
-	  // .get(this.url)
-     // .toPromise()
-     // .then(res => res.json())
-     // .catch(this.handleError);     
-     return Promise.resolve(STOCKS);;
+  getStocks(market: any) : Promise<Stock[]>{
+     return this.http
+                .get(this.url)
+                .toPromise()
+                .then(res => {
+                      let filteredStocks = [];
+                      for(let i = 0; i < res.json().length; i++) {
+                          let stock = res.json()[i];
+                          if(stock.market.toLowerCase().indexOf(market.toLowerCase()) == 0) {
+                              filteredStocks.push(stock);
+                          }
+                      }
+                      return filteredStocks;
+                })
+                .catch(this.handleError);     
+     //return Promise.resolve(STOCKS);
   }
 
-  create(name: any): Promise<any> {
-	//console.log("name " + name);
-	//console.log("name string " + JSON.stringify({name: name}));
+  create(stock: any): Promise<any> {
+    const data = JSON.stringify(stock)
     return this.http
-      //.post(this.heroesUrl, JSON.stringify({name: name}))
-	  .post(this.url, {name: name})
+	  .post(this.url,data)
       .toPromise()
       .then(res => res.json())
       .catch(this.handleError);

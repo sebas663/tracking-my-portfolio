@@ -41,17 +41,17 @@ export class BuyStockComponent implements OnInit {
   }
 
   getStocks(): void {
-    this.stockService.getStocks().then(stocks=> this.stocks = stocks);
+    this.stockService.getStocks("MERVAL").then(stocks=> this.stocks = stocks);
   }
 
   onSubmit() { 
-    console.log(this.model);
-    console.log(this.model.stock.code);
-    console.log(this.model.quantity);
-    console.log(this.model.price);
-    console.log(this.model.buyDate);
-    console.log(orderServiceProvider);
-    console.log(this.orderService);
+    //console.log(this.model);
+    //console.log(this.model.stock.code);
+    //console.log(this.model.quantity);
+    //console.log(this.model.price);
+    //console.log(this.model.buyDate);
+    //console.log(orderServiceProvider);
+    //console.log(this.orderService);
     
     //this.submitted = true;
     this.submitted = false;

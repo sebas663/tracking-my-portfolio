@@ -15,7 +15,7 @@ export class DevelopmentService extends StockService {
     console.log("DevelopmentService instance");
    }
 
-  getStocks() : Promise<Stock[]>{
+  getStocks(market: any) : Promise<Stock[]>{
     //return this.http
 	  // .get(this.url)
      // .toPromise()
