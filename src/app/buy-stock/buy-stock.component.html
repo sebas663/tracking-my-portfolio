@@ -3,15 +3,15 @@
     <h3>Compra de acciones</h3>
     <form *ngIf="active" (ngSubmit)="onSubmit()" #buyStockForm="ngForm">
       <div class="form-group">
-        <label for="codeStock">Especie</label><br>
-        <p-autoComplete [(ngModel)]="model.codeStock"
+        <label for="stock">Especie</label><br>
+        <p-autoComplete [(ngModel)]="model.stock"
                         [suggestions]="filteredStocks" 
                         (completeMethod)="filterStocks($event)" 
                         field="description"
                         [size]="30"
                         [minLength]="1"  [dropdown]="true" (onDropdownClick)="handleDropdownClick($event)"
-                        name="codeStock" 
-                        id="codeStock">
+                        name="stock" 
+                        id="stock">
             <template let-stocka>
                 <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
                     <div style="font-size:18px;float:left;margin:10px 10px 0 0">{{stocka.code}} - {{stocka.description}}</div>

@@ -15,39 +15,38 @@ import { StockService } from '../services/stock.service';
 export class BuyStockComponent implements OnInit {
 
   es: any;
-  stocks: any;
+  stocks: Stock[];
+  filteredStocks: Stock[];
+  model = new BuyStock();
+  submitted = false;
+
   constructor(private orderService : OrderService, private stockService : StockService) { }
 
   ngOnInit() {
-
-    this.es = {
+        this.es = {
         	firstDayOfWeek: 1,
         	dayNames: [ "domingo","lunes","martes","miércoles","jueves","viernes","sábado" ],
         	dayNamesShort: [ "dom","lun","mar","mié","jue","vie","sáb" ],
         	dayNamesMin: [ "D","L","M","X","J","V","S" ],
             monthNames: [ "enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre" ],
         	monthNamesShort: [ "ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic" ]
-        };
+         };
         
         let today = new Date();
         let month = today.getMonth();
         let prevMonth = (month === 0) ? 11 : month -1;
         let nextMonth = (month === 11) ? 0 : month + 1;
-        this.stocks = this.stockService.getStocks();
-        
+
+        this.getStocks();   
   }
 
- 
-
-  filteredStocks: any[];
-
-  model = new BuyStock();
-
-  submitted = false;
+  getStocks(): void {
+    this.stockService.getStocks().then(stocks=> this.stocks = stocks);
+  }
 
   onSubmit() { 
     console.log(this.model);
-    console.log(this.model.codeStock.code);
+    console.log(this.model.stock.code);
     console.log(this.model.quantity);
     console.log(this.model.price);
     console.log(this.model.buyDate);
@@ -80,13 +79,12 @@ export class BuyStockComponent implements OnInit {
         }
     }
 
-    handleDropdownClick() {
+  handleDropdownClick() {
         this.filteredStocks = [];
-        
         //mimic remote call
         setTimeout(() => {
             this.filteredStocks = this.stocks;
         }, 100)
-    }
+  }
 
 }

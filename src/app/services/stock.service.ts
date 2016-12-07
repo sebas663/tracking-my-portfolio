@@ -28,18 +28,19 @@ export class StockServiceProduction extends StockService {
 
   getStocks() : Promise<Stock[]>{
     //return this.http
-	 // .get(this.url)
+	  // .get(this.url)
      // .toPromise()
      // .then(res => res.json())
      // .catch(this.handleError);
-
-     let stocks = [
+      const STOCKS: Stock[] = [
               {code:"bma",description:"Banco Manco"},
-              {code:"bma1",description:"Banco Manco1"},
-              {code:"bma2",description:"Banco Manco2"},
-            ];
-      console.log("stocks " + stocks);     
-     return Promise.resolve(stocks);;
+              {code:"erar",description:"Sinderar"},
+              {code:"celu",description:"Celulosa"},
+              {code:"apbr",description:"Petrolao Brasileiro"},
+              {code:"come",description:"Cometa"},
+              {code:"tran",description:"Tranvias"}
+            ];     
+     return Promise.resolve(STOCKS);;
   }
 
   create(name: any): Promise<any> {
