@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BuyStock }    from './buy-stock';
 import { Stock }    from './stock';
-import { orderServiceProvider } from '../services/order.service.provider';
-import { stockServiceProvider } from '../services/stock.service.provider';
-import { OrderService } from '../services/order.service';
-import { StockService } from '../services/stock.service';
+import { orderServiceProvider } from '../services/order/order.service.provider';
+import { stockServiceProvider } from '../services/stock/stock.service.provider';
+import { OrderService } from '../services/order/order.service';
+import { StockService } from '../services/stock/stock.service';
 
 @Component({
   selector: 'app-buy-stock',
