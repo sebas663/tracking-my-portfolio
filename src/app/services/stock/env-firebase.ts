@@ -8,7 +8,7 @@ import { STOCKS }          from './mock-stock';
 @Injectable()
 export class FirebaseService extends StockService {
 
-  private url = 'https://tracking-my-portfolio-8260e.firebaseio.com/stocksFirebase.json';
+  private url = 'https://tracking-my-portfolio-dev.firebaseio.com/stocksFirebase.json';
 
   constructor(private http: Http) {
     super();

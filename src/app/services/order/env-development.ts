@@ -6,7 +6,7 @@ import { OrderService }  from './order.service';
 @Injectable()
 export class DevelopmentService extends OrderService {
 
-  private url = 'https://tracking-my-portfolio-8260e.firebaseio.com/ordersDevelopment.json';
+  private url = 'https://tracking-my-portfolio-dev.firebaseio.com/orders.json';
 
   constructor(private http: Http) {
     super();
