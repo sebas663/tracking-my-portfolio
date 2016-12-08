@@ -5,6 +5,7 @@
 
 export const environment = {
   isProduction: false,
-  isDev: true,
-  isFirebase: false
+  isDevelopment: true,
+  isTestProduction: false,
+  serviceImplType: "FIREBASE"
 };

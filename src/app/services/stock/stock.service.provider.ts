@@ -9,10 +9,10 @@ let stockServiceFactory = (http: Http) => {
 
   let service : StockService;
 
-  if(environment.isDev) {
+  if(environment.isDevelopment) {
       //console.log("environment.isDev " + environment.isDev)
       service = new DevelopmentService(http);
-  }else if(environment.isFirebase) {
+  }else if(environment.isTestProduction) {
       //console.log("environment.isFirebase " + environment.isFirebase)
       service = new FirebaseService(http);
   }else if(environment.isProduction){

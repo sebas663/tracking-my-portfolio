@@ -2,14 +2,16 @@ import { Injectable }    from '@angular/core';
 import { Http }          from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { OrderService }  from './order.service';
+import { ParamEnvironment }  from '../param.environment';
 
 @Injectable()
 export class FirebaseService extends OrderService {
 
-  private url = 'https://tracking-my-portfolio-dev.firebaseio.com/ordersFirebase.json';
+  private url: string;
 
-  constructor(private http: Http) {
+  constructor(private http: Http,private param: ParamEnvironment) {
     super();
+    this.url = param.url + "/orders.json";
     console.log("FirebaseService instance");
    }
 

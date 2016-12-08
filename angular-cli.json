@@ -28,7 +28,7 @@
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts",
-        "firebase": "environments/environment.firebase.ts"
+        "testProd": "environments/environment.testProd.ts"
       }
     }
   ],
