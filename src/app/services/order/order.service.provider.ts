@@ -3,33 +3,35 @@ import { FirebaseService }       from './impl.firebase.service';
 import { environment }           from '../../../environments/environment';
 import { Http }                  from '@angular/http';
 import { ServiceImplEnum }       from '../service.impl.enum';
-import { ServiceParamEnvironment }  from '../service.param.environment';
-import { ParamEnvironment }  from './param.environment';
+import { ParamEnvironment }  from '../param.environment';
+import { PARAM_ENVIRONMENT_DICTIONARY }  from '../param.environment.dictionary';
+
 
 let orderServiceFactory = (http: Http) => {
 
-  let service : OrderService;
-  
+  let service: OrderService;
+  let param: ParamEnvironment;
   if(environment.isDevelopment) {
-      service = getService(http,environment.serviceImplType,ServiceImplEnum.DEVELOPMENT);
+      param = PARAM_ENVIRONMENT_DICTIONARY.item(ServiceImplEnum.DEVELOPMENT + environment.serviceImplType);
+      service = getService(http,param);
   }else if(environment.isTestProduction) {
-      service = getService(http,environment.serviceImplType,ServiceImplEnum.TESTPRODUCTION);
+      param = PARAM_ENVIRONMENT_DICTIONARY.item(ServiceImplEnum.TESTPRODUCTION + environment.serviceImplType);
+      service = getService(http,param);
   }else if(environment.isProduction){
-      service = getService(http,environment.serviceImplType,ServiceImplEnum.PRODUCTION);
+      param = PARAM_ENVIRONMENT_DICTIONARY.item(ServiceImplEnum.PRODUCTION + environment.serviceImplType);
+      service = getService(http,param);
   }
    return service;
 };
 
-let getService = (http: Http,servicetype:string,param:ParamEnvironment) => {
+let getService = (http: Http, param: ParamEnvironment) => {
     let service: OrderService;
 
-    switch (servicetype) {
+    switch (environment.serviceImplType) {
         case ServiceImplEnum[ServiceImplEnum.FIREBASE]:
-        
-            service = new FirebaseService(http,ServiceParamEnvironment.PROD_FIREBASE);
+            service = new FirebaseService(http,param);
             break;
-        default:
-            
+        default:           
             break;
     }
     return service;
