@@ -11,6 +11,7 @@ let orderServiceFactory = (http: Http) => {
 
   let service: OrderService;
   let param: ParamEnvironment;
+  
   if(environment.isDevelopment) {
       param = PARAM_ENVIRONMENT_DICTIONARY.item(ServiceImplEnum.DEVELOPMENT + environment.serviceImplType);
       service = getService(http,param);
