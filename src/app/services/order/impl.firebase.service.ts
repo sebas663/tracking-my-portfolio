@@ -12,7 +12,7 @@ export class FirebaseService extends OrderService {
   constructor(private http: Http,private param: ParamEnvironment) {
     super();
     this.url = param.url + "/orders.json";
-    console.log("FirebaseService instance");
+    console.log("OrderService FirebaseService instance");
    }
 
   sendOrder(order: any): Promise<any> {

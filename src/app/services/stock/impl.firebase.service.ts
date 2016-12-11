@@ -3,16 +3,17 @@ import { Http }            from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { StockService }    from './stock.service';
 import { Stock }           from '../../buy-stock/stock';
-import { STOCKS }          from './mock-stock';
+import { ParamEnvironment }  from '../param.environment';
 
 @Injectable()
 export class FirebaseService extends StockService {
 
-  private url = 'https://tracking-my-portfolio-dev.firebaseio.com/stocksFirebase.json';
+  private url: string;
 
-  constructor(private http: Http) {
+  constructor(private http: Http,private param: ParamEnvironment) {
     super();
-    console.log("FirebaseService instance");
+    this.url = param.url + "/stocks.json";
+    console.log("StockService FirebaseService instance");
    }
 
   getStocks(market: any) : Promise<Stock[]>{
@@ -30,7 +31,6 @@ export class FirebaseService extends StockService {
                       return filteredStocks;
                 })
                 .catch(this.handleError);     
-     //return Promise.resolve(STOCKS);
   }
 
   create(stock: any): Promise<any> {
