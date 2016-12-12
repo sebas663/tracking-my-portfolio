@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { AUTH_PROVIDERS }      from 'angular2-jwt';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule }     from './app-routing.module';
@@ -24,7 +25,7 @@ import { PortfolioCloseModule } from './portfolio-close/portfolio-close.module';
     PortfolioCloseModule,
     MenubarModule
   ],
-  providers: [],
+  providers: [AUTH_PROVIDERS],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

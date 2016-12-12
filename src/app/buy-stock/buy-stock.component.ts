@@ -5,6 +5,7 @@ import { orderServiceProvider } from '../services/order/order.service.provider';
 import { stockServiceProvider } from '../services/stock/stock.service.provider';
 import { OrderService } from '../services/order/order.service';
 import { StockService } from '../services/stock/stock.service';
+import { Auth }       from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-buy-stock',
@@ -20,7 +21,9 @@ export class BuyStockComponent implements OnInit {
   model = new BuyStock();
   submitted = false;
 
-  constructor(private orderService : OrderService, private stockService : StockService) { }
+  constructor( private orderService : OrderService, 
+               private stockService : StockService,
+               private auth: Auth ) { }
 
   ngOnInit() {
         this.es = {
