@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+const styles = require('./portfolio-open.component.css');
+const template = require('./portfolio-open.component.html');
+
 @Component({
   selector: 'app-portfolio-open',
-  templateUrl: './portfolio-open.component.html',
-  styleUrls: ['./portfolio-open.component.css']
+  template: template,
+  styleUrls: [ styles ]
 })
 export class PortfolioOpenComponent implements OnInit {
 

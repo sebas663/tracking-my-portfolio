@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+const styles = require('./dashboard.component.css');
+const template = require('./dashboard.component.html');
+
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  template: template,
+  styleUrls: [ styles ]
 })
 export class DashboardComponent implements OnInit {
 

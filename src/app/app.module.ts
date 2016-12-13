@@ -10,10 +10,14 @@ import { BuyStockModule } from './buy-stock/buy-stock.module';
 import { SellStockModule } from './sell-stock/sell-stock.module';
 import { PortfolioOpenModule } from './portfolio-open/portfolio-open.module';
 import { PortfolioCloseModule } from './portfolio-close/portfolio-close.module';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

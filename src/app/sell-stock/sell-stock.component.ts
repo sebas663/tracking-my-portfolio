@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+const styles = require('./sell-stock.component.css');
+const template = require('./sell-stock.component.html');
+
 @Component({
   selector: 'app-sell-stock',
-  templateUrl: './sell-stock.component.html',
-  styleUrls: ['./sell-stock.component.css']
+  template: template,
+  styleUrls: [ styles ]
 })
 export class SellStockComponent implements OnInit {
 

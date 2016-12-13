@@ -7,10 +7,13 @@ import { OrderService } from '../services/order/order.service';
 import { StockService } from '../services/stock/stock.service';
 import { Auth }       from '../services/auth/auth.service';
 
+const styles = require('./buy-stock.component.css');
+const template = require('./buy-stock.component.html');
+
 @Component({
   selector: 'app-buy-stock',
-  templateUrl: './buy-stock.component.html',
-  styleUrls: [ './buy-stock.component.css' ],
+  template: template,
+  styleUrls: [ styles ],
   providers: [ orderServiceProvider,stockServiceProvider ]
 })
 export class BuyStockComponent implements OnInit {
